@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2019-12-10T14:34:45Z" product-name="int_park" target-language="de">
+		<header/>
+		<body>
+			<trans-unit id="tx_intpark_domain_model_park">
+				<source>Park</source>
+			</trans-unit>
+			<trans-unit id="park.backend.headline">
+				<source>Interactive Park Planner</source>
+				<target>Interaktiver Parkplaner</target>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_park.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_park.markers">
+				<source>Markers</source>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_marker">
+				<source>Marker</source>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_marker.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_marker.lat">
+				<source>Lat</source>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_marker.lon">
+				<source>Lon</source>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_marker.content">
+				<source>Content</source>
+			</trans-unit>
+			<trans-unit id="backend.selectparksnotice">
+				<source>Please select a page from page tree where park plans are stored.</source>
+				<target>Bitte wählen Sie eine Seite aus dem Seitenbaum, auf der die Parkpläne gespeichert sind.</target>
+			</trans-unit>
+			<trans-unit id="backend.table.parkplan">
+				<source>Park-Plan Name</source>
+				<target>Parkplan-Bezeichnung</target>
+			</trans-unit>
+			<trans-unit id="backend.table.markers">
+				<source>Markers</source>
+				<target>Marker</target>
+			</trans-unit>
+			<trans-unit id="backend.btn.save">
+				<source>Save</source>
+				<target>Speichern</target>
+			</trans-unit>
+			<trans-unit id="backend.btn.clear">
+				<source>Clear all Markers</source>
+				<target>Alle Marker löschen</target>
+			</trans-unit>
+			<trans-unit id="backend.btn.close">
+				<source>Close</source>
+				<target>Schließen</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

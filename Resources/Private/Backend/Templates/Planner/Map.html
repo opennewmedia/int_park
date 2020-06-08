@@ -1,0 +1,154 @@
+{namespace be = TYPO3\CMS\Backend\ViewHelpers}
+{namespace core = TYPO3\CMS\Core\ViewHelpers}
+{namespace v = FluidTYPO3\Vhs\ViewHelpers}
+
+<f:layout name="Default" />
+
+<f:section name="headline">
+	<!-- including js & css vendor resources -->
+	<link rel="stylesheet" href="../typo3conf/ext/int_park/Resources/Public/css/vendor/bootstrap.min.css" />
+	<link rel="stylesheet" href="../typo3conf/ext/int_park/Resources/Public/css/vendor/jquery-ui.css" media="screen">
+	<script type="text/javascript" src="../typo3conf/ext/int_park/Resources/Public/js/vendor/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="../typo3conf/ext/int_park/Resources/Public/js/vendor/bootstrap.min.js"></script>
+	
+	<script type="text/javascript" src="../typo3conf/ext/int_park/Resources/Public/js/vendor/jquery-ui.min.js"></script>
+	<link href="../typo3conf/ext/int_park/Resources/Public/css/vendor/summernote.css" rel="stylesheet">
+	<script src="../typo3conf/ext/int_park/Resources/Public/js/vendor/summernote.min.js"></script>
+	<script type="text/javascript" src="../typo3conf/ext/int_park/Resources/Public/js/vendor/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="../typo3conf/ext/int_park/Resources/Public/js/vendor/hammer.min.js"></script>
+	<script type="text/javascript" src="../typo3conf/ext/int_park/Resources/Public/js/vendor/jquery.hammer.js"></script>
+	<script type="text/javascript" src="../typo3conf/ext/int_park/Resources/Public/js/vendor/imgViewer.js"></script>
+	<style type="text/css" media="all">@import "../typo3conf/ext/int_park/Resources/Public/css/vendor/imgNotes.css";</style>
+	<style type="text/css" media="all">@import "../typo3conf/ext/int_park/Resources/Public/css/vendor/toastify.css";</style>
+	<script type="text/javascript" src="../typo3conf/ext/int_park/Resources/Public/js/vendor/imgNotes.js"></script>
+	<script type="text/javascript" src="../typo3conf/ext/int_park/Resources/Public/js/vendor/toastify.js"></script>
+</f:section>
+
+<f:section name="content">
+        
+			
+    <table cellspacing="0" cellpadding="0" border="0" style="width: 100%; min-width: 320px;">
+			<tr>
+			<td style="padding: 10px">
+				<h1 style="text-align: center;">{park.title}</h1>
+				<div align="center">
+					<img src="{f:uri.image(image: park.image)}" id="image" width="100%">
+				</div>
+			</td>
+			</tr>
+			<tr style="position: fixed; bottom: 0px; left: 50%; margin-left: -136px; background-color: white; z-index: 9999;">
+			<td style="padding: 10px">
+				<div align="center">
+					<button class="btn btn-default btn-success" id="export"><f:translate key="backend.btn.save" /></button> <button id="clear" class="btn btn-default">Clear</button> <a class="btn btn-default" href="javascript:window.close()">Close</a>
+				</div>
+			</td>
+			</tr>
+			<tr>
+			<td style="text-align:center; padding: 10px">
+				<div id=txt align="center"></div>
+			</td>
+			</tr>
+		</table>
+		
+		<script>
+			var notes = [
+				<f:for each="{park.markers}" as="marker">
+					<f:format.raw>{</f:format.raw>x: "{marker.lat}", y:"{marker.lon}", title:"{marker.title}", icon:"{marker.icon}", note:`{marker.contenthtml}`, list:`{marker.list}`<f:format.raw>}</f:format.raw>, 
+				</f:for>
+					];
+			var settings = <f:format.raw>{</f:format.raw>'park': {park.uid}, pinW: '{pinW}', pinH: '{pinH}', 'pid': {pid}<f:format.raw>}</f:format.raw>;
+			
+		</script>
+
+    <script type="text/javascript">
+		;(function($) {
+
+				$(window).load(function() {
+					//
+					// Hack to get visibility of summernote link and picture dialogs
+					//
+					$('<style />', {text: '.modal-backdrop.in {display: none;}'}).appendTo("head");
+
+					var $img = $("#image").imgNotes({
+						onEdit: function(ev, elem) {
+							var $elem = $(elem);
+							$('#NoteDialog').remove();
+							return $('<div id="NoteDialog"></div>').dialog({
+								title: "Marker Title",
+								resizable: false,
+								modal: true,
+								height: "400",
+								width: "450",
+								position: { my: "left bottom", at: "right top", of: elem},
+								buttons: {
+									"Save": function() {
+										$data = $(this).summernote('code').split("|");
+										if($data.length == 2) {
+											$elem.data("note").icon = $(this).summernote('code').split("|")[0].replace(/<[^>]*>/g, "").trim();
+											$elem.data("note").title = $(this).summernote('code').split("|")[1].replace(/<[^>]*>/g, "").trim();
+										} else {
+											$elem.data("note").title = $(this).summernote('code').replace(/<[^>]*>/g, "").trim();
+										}
+										$(this).summernote('destroy');
+										$(this).dialog("close");
+										document.getElementById("export").click();
+									},
+									"Delete": function() {
+										$elem.trigger("remove");
+										$(this).summernote('destroy');
+										$(this).dialog("close");
+										document.getElementById("export").click();
+									},
+									Cancel: function() {
+										$(this).summernote('destroy');
+										$(this).dialog("close");
+									}
+								},
+									open: function() {
+										$(this).summernote({
+											toolbar: [
+												['all',[]]
+											]
+										});
+										var title = ($elem.data("note").title) ? $elem.data("note").title : 'Titel';
+										$(this).summernote('code', title);
+									}
+							});
+						}
+					});
+					
+					$img.imgNotes("import", notes);
+					$img.imgNotes("option", "canEdit", true);
+
+					// here markers will be saved for this park planner, (ofcourse old will be deleted because thats lazy thing to do ;-) )
+					var $export = $("#export");
+					$export.on("click", function() {
+						var btn = $(this);
+						btn.attr("disabled", true);
+						saveUrl = '/typo3/index.php?route=%2Fajax%2Fplanner%2Fsave';
+						var notes = $img.imgNotes('export');
+						var finalData = {'settings': settings, 'notes': notes}
+						console.log(finalData);
+						$.ajax({
+							url: saveUrl,
+							type: 'POST',
+							data: JSON.stringify(finalData),
+							contentType: 'application/json; charset=utf-8',
+							dataType: 'json',
+							async: true,
+							success: function(msg) {
+								btn.attr("disabled", false);
+								Toastify({text: "Markers saved.", duration: 3000}).showToast();
+							}
+						});
+					});
+					
+					var $clear = $("#clear");
+					$clear.on("click", function() {
+						$img.imgNotes('clear');
+					});
+				});
+		})(jQuery);
+		</script>
+
+</f:section>

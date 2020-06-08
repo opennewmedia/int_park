@@ -1,0 +1,16 @@
+<f:if condition="{park.image}">
+    <div class="interactive-park-planner">
+        <f:image image="{park.image}" style="display: none;" id="tx-intpark-image" />
+        <script>
+            var parkMarkers = [
+                <f:for each="{park.markers}" as="marker">
+                    <f:format.raw>{</f:format.raw>x: "{marker.lat}", y:"{marker.lon}", pinW:{pinW}, pinH:{pinH}, title:"{marker.title}", note:`{marker.contenthtml -> f:format.html()} {marker.listcontent -> f:format.raw()}`<f:format.raw>}</f:format.raw>, 
+                </f:for>
+                    ];
+            var zoomLevel = {zoom};
+        </script>
+        <div id="map">
+            
+        </div>
+    </div>
+</f:if>

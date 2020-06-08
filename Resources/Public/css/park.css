@@ -1,0 +1,10 @@
+.interactive-park-planner #map {
+    height: 100vh;
+    z-index: 0;
+}
+.content.content-intpark_map > .content__wrapper {
+    padding: 0px;
+}
+.interactive-park-planner .leaflet-container {
+    background-color:#A7DE3E;
+}

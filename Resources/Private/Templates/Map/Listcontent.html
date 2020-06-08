@@ -1,0 +1,26 @@
+<html
+        xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+        xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers"
+        xmlns:osc="http://typo3.org/ns/ONM/OnmStyledContent/ViewHelpers"
+        data-namespace-typo3-fluid="true">
+<div>
+    <f:for each="{data}" as="row" iteration="i">
+        <div>
+            <div>
+                <f:link.typolink parameter="{row.link}" target="_blank">
+                    <div class="h5" style="margin-bottom: -5px;">
+                        <f:format.raw>{row.header}</f:format.raw>
+                    </div>
+                    <hr />
+                    <f:if condition="{row.assetUid}">
+                        <f:image src="{row.assetUid}" treatIdAsReference="1" alt=""  width="100c" height="100c" />
+                    </f:if>
+                </f:link.typolink>
+            </div>
+            <div>
+                <f:format.raw>{row.bodytext}</f:format.raw>
+            </div>
+        </div>
+    </f:for>
+</div>
+</html>

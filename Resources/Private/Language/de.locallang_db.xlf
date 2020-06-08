@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2019-12-10T14:34:45Z" product-name="int_park" target-language="de">
+		<header/>
+		<body>
+			<trans-unit id="tx_intpark_domain_model_park">
+				<source>Park</source>
+				<target>Park</target>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_park.image">
+				<source>Image</source>
+				<target>Bild</target>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_park.markers">
+				<source>Markers</source>
+				<target>Markierungen</target>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_marker">
+				<source>Marker</source>
+				<target>Markierung</target>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_marker.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_marker.bgcolor">
+				<source>Background Color</source>
+				<target>Hintergrundfarbe</target>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_marker.pin">
+				<source>Marker Image (Pro feature)</source>
+				<target>Marker-Bild (Pro-Funktion)</target>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_marker.lat">
+				<source>Latitude</source>
+				<target>Breitengrad</target>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_marker.lon">
+				<source>Longitude</source>
+				<target>Längengrad</target>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_marker.icon">
+				<source>Marker Options (Pro feature)</source>
+				<target>Marker Optionen (Pro-Funktion)</target>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_marker.content">
+				<source>Content</source>
+				<target>Inhalt</target>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_park.palettes.distance">
+				<source>Distance of icon (Pro feature)</source>
+				<target>Abstand des Symbols (Pro-Funktion)</target>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_park.palettes.color">
+				<source>Colors (Pro feature)</source>
+				<target>Farben (Pro-Funktion)</target>
+			</trans-unit>
+			<trans-unit id="tx_int_park_map.name">
+				<source>Interactive Park Plan</source>
+				<target>Interaktiver Parkplan</target>
+			</trans-unit>
+			<trans-unit id="tx_int_park_map.description">
+				<source>Interactive Park Plan with markers on image and information about the marked place.</source>
+				<target>Interaktiver Parkplan mit Markierungen auf dem Bild und Informationen über den markierten Ort.</target>
+			</trans-unit>
+			<trans-unit id="tx_int_park_map.park">
+				<source>Select Park</source>
+				<target>Park auswählen</target>
+			</trans-unit>
+			<trans-unit id="tx_int_park_map.zoom">
+				<source>Zoom Level</source>
+				<target>Vergrößerungsstufe</target>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_marker.list">
+				<source>List-Items (Text &amp; Image)</source>
+				<target>Listen-Einträge (Text &amp; Bild)</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

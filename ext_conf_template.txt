@@ -1,0 +1,2 @@
+# cat=basic/enable; type=string; label=Icon Font File path e.g. /typo3temp/css/fonts.css (Pro feature)
+iconFontFile =

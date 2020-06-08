@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2019-12-10T14:34:45Z" product-name="int_park">
+		<header/>
+		<body>
+			<trans-unit id="title.description">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="lat.description">
+				<source>lat</source>
+			</trans-unit>
+			<trans-unit id="lon.description">
+				<source>lon</source>
+			</trans-unit>
+			<trans-unit id="icon.description">
+				<source>Hint:  Enter here the icons name. You can pick any icons class-name from styleguide.</source>
+			</trans-unit>
+			<trans-unit id="content.description">
+				<source>content</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

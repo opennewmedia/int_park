@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2019-12-10T14:34:45Z" product-name="int_park">
+		<header/>
+		<body>
+			<trans-unit id="tx_intpark_domain_model_park">
+				<source>Park</source>
+			</trans-unit>
+			<trans-unit id="park.backend.headline">
+				<source>Interactive Park Planner</source>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_park.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_park.markers">
+				<source>Markers</source>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_marker">
+				<source>Marker</source>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_marker.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_marker.lat">
+				<source>Lat</source>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_marker.lon">
+				<source>Lon</source>
+			</trans-unit>
+			<trans-unit id="tx_intpark_domain_model_marker.content">
+				<source>Content</source>
+			</trans-unit>
+			<trans-unit id="backend.selectparksnotice">
+				<source>Please select a page from page tree where park plans are stored.</source>
+			</trans-unit>
+			<trans-unit id="backend.table.parkplan">
+				<source>Park-Plan Name</source>
+			</trans-unit>
+			<trans-unit id="backend.table.markers">
+				<source>Markers</source>
+			</trans-unit>
+			<trans-unit id="backend.btn.save">
+				<source>Save</source>
+			</trans-unit>
+			<trans-unit id="backend.btn.clear">
+				<source>Clear all Markers</source>
+			</trans-unit>
+			<trans-unit id="backend.btn.close">
+				<source>Close</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
