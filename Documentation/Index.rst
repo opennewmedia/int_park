@@ -31,7 +31,6 @@ int_park: Interactive Park Planner
    Editor/Index
    Installation/Index
    Configuration/Index
-   Developer/Index
    KnownProblems/Index
    Sitemap
 

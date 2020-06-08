@@ -7,5 +7,4 @@
 Known Problems
 ==============
 
-Use this section for informing about any type of of problem
-that are not necessarily named in the bug tracker such as performance issues, ...
+If you find any bug please report at https://github.com/opennewmedia/int_park/issues . We are also searching...

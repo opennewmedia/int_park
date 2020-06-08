@@ -9,51 +9,76 @@ For Editors
 
 Target group: **Editors**
 
-How to use the extension from the perspective of an editor.
+Initial Zoom of the image
+=========================
 
-Think of common tasks that an editor is likely to perform in your extension.
+You can select initial zoom of the image from the park content element.
 
-- How do they complete them?
-- What problems are they likely to encounter?
-- What access do they require?
-- What configuration options are available to them?
+.. figure:: ../Images/editor_ce.png
+   :class: with-shadow
+   :alt: Content Element options
+   :width: 100%
 
-One example could be adding a frontend plugin to a page and then configuring it.
+   Park and initial zoom can be seelected.
 
-Language should be non-technical, aim to avoid using acronyms where possible.
+Park Planner Backend Module
+===========================
 
-Be mindful that editors typically dont have administrative access to the installation.
+.. figure:: ../Images/be_module.png
+   :class: with-shadow
+   :alt: Backend Module
+   :width: 100%
+
+   Backend Module
+
+Backend editor to place markers on image
+========================================
+
+By clicking on the title of the map or the image will open a popup with image to place markers and specify icon and title of the marker.
+Clicking on image will palce a marker there and will open a popup with an editor. Where you can specify 2 values. First is icon and then after pipe symbol is the title. (Icon can only be specified in pro version)
+
+.. figure:: ../Images/backend_map.png
+   :class: with-shadow
+   :alt: Backend Editor
+   :width: 100%
+
+   Backend Editor
 
 .. tip::
 
-   Take a break from time to time.
+   You have to specify icon font css file in ext configuration to show icon inside marker in backend editor.
 
-Admonitions should be used to warn the users about potential
-pitfalls, attract their attention to important elements
-or just add some notes for for information (further reading,
-for example).
+Map options
+===========
 
-.. important::
+Marker image, icon and background color, and icon's top left values can be set in map options. (These are pro features, so to get pro version please contact: https://www.onm.de/kontakt/ )
 
-   Do not overuse admonitions like notes, important, etc.!
-
-Provide screenshots as needed for making things clear. When creating
-screenshots, try using the Official Introduction Package.
-
-.. figure:: ../Images/UserManual/BackendView.png
+.. figure:: ../Images/map_options.png
    :class: with-shadow
-   :alt: Backend view
+   :alt: Map options
 
-   Default Backend view (caption of the image)
+   Map options
 
-.. important::
+Marker options
+==============
 
-   Do not use huge full-screen images, unless it is necessary and serves
-   a good purpose.
+In marker TCA, icon class can be specified, as well as its content. Content can be specified in 2 ways, one way is using RTE and other way is to add default Text & Image element via inline option. So multiple text and image elements can be added.
 
-.. _editor-faq:
+.. figure:: ../Images/marker_options.png
+   :class: with-shadow
+   :alt: Marker options
 
-FAQ
-===
+   Marker options
 
-Possible subsection: FAQ
+For any queries please contact
+==============================
+
+Open New Media GmbH Agentur für digitale Kommunikation
+
+Simrockstraße 5 56075 Koblenz
+
+Tel.: +49 261 30380-80 Fax: +49 261 30380-88
+
+E-Mail: info@onm.de
+
+Web: https://www.onm.de
