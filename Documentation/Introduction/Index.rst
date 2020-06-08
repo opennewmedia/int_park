@@ -8,52 +8,44 @@ Introduction
 ============
 
 
-.. tip::
+.. important::
 
-   New to reStructuredText and Sphinx?
+   There is also a pro version of this extension with extra features.
 
-   Get an introduction:
-   https://docs.typo3.org/m/typo3/docs-how-to-document/master/en-us/WritingReST/Index.html
-
-   Use this cheat sheet as reference:
-   https://docs.typo3.org/m/typo3/docs-how-to-document/master/en-us/WritingReST/CheatSheet.html
+   Get in contant:
+   https://www.onm.de/kontakt/
 
 .. _what-it-does:
 
 What does it do?
 ================
 
-The aim of this chapter is to provide a general overview of your extension.
+This extension let you make an image as a map and you can place markers on the image and store some content on marker from the Backend module.
+Key points of this extension are:
 
-* What does it do?
-* What problems does it solve?
-* Who is the target audience?
-
-This chapter should provide information that will help inform 
-potential users and assist them in deciding if they should 
-install and use this extension.
-
-.. important::
-
-   Don't forget to repeat your extension's version number in the
-   :file:`Settings.cfg` file, in the :code:`release` property. It will be
-   automatically picked up on the cover page by the :code:`|release|`
-   substitution.
-
+* Backend module to place markers on the image and specify its icon and title
+* Write content for each marker in TYPO3 RTE, even can place images.
+* On frontend it shows the image as a map using leaflet library and markers on it
 
 .. _screenshots:
 
 Screenshots
 ===========
 
-This chapter should help people understand how the extension works. Remove it
-if it is not relevant.
+How frontend will look like with the image and markers on them.
 
-.. figure:: ../Images/IntroductionPackage.png
+.. figure:: ../Images/map_rendered.png
    :class: with-shadow
-   :alt: Introduction Package
-   :width: 300px
+   :alt: Map with markers
+   :width: 100%
 
-   Introduction Package just after installation (caption of the image)
+   Image showing markers and content of the marker inside a tooltip
 
-How the Frontend of the Introduction Package looks like just after installation (legend of the image)
+Backend editor where you can place markers on the image and specify icon and title.
+
+.. figure:: ../Images/backend_map.png
+   :class: with-shadow
+   :alt: Placing markers
+   :width: 100%
+
+   Placing markers on the image in the backend module
