@@ -33,8 +33,14 @@
                     popupAnchor: [0, marker.pinH*-1]
                     });
                 if(marker.note.trim() != '') {
-                    L.marker(pointlatlng, {icon: Icon}).addTo(map).bindPopup(marker.note, {
+                    mk = L.marker(pointlatlng, {icon: Icon}).addTo(map).bindPopup(marker.note, {
                         className: 'ap-infowindow'
+                    });
+                    mk.on('popupopen', function (popup) {
+                        map.setMaxBounds(null);
+                    });
+                    mk.on('popupclose', function (popup) {
+                        map.setMaxBounds(bounds);
                     });
                 } else {
                     L.marker(pointlatlng, {icon: Icon}).addTo(map);
