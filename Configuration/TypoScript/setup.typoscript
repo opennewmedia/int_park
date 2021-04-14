@@ -30,6 +30,9 @@ page.includeCSSLibs.park = EXT:int_park/Resources/Public/css/park.css
 page.includeJSFooterlibs.leaflet = EXT:int_park/Resources/Public/vendor/leaflet/leaflet.js
 page.includeJSFooter.park = EXT:int_park/Resources/Public/js/park.js
 
+# custom int_park css from TS constant
+page.includeCSS.parkCustomCSS = {$plugin.tx_intpark_map.view.customCSS}
+
 # these classes are only used in auto-generated templates
 plugin.tx_intpark._CSS_DEFAULT_STYLE (
     textarea.f3-form-error {

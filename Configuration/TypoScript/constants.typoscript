@@ -7,6 +7,8 @@ plugin.tx_intpark_map {
         partialRootPath = EXT:int_park/Resources/Private/Partials/
         # cat=plugin.tx_intpark_map/file; type=string; label=Path to template layouts (FE)
         layoutRootPath = EXT:int_park/Resources/Private/Layouts/
+        # cat=plugin.tx_intpark_map/file; type=string; label=CSS to include in Frontend
+        customCSS = 
     }
     persistence {
         # cat=plugin.tx_intpark_map//a; type=string; label=Default storage PID
