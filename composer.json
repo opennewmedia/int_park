@@ -1,8 +1,8 @@
 {
     "name": "onm/int-park",
     "type": "typo3-cms-extension",
-    "description": "Interactive Park Planner is a TYPO3 extension which is using leaflet library to place and show markers with its description on an image.",
-    "version": "1.0.3",
+    "description": "Interactive Park Planner is a TYPO3 extension which is using leaflet library to place and show markers with its description on an image. You can create as many "plans/images" as you want. Markers with custom icons can also be used. Also, per marker, you can define individual titles and links to subpages.  - Get in touch with us: Open New Media GmbH | Digital communication agency | Tel .: +49 261 30380-80 | E-Mail: info@onm.de | Web: https://www.onm.de | Hotel solutions: https://www.hotelsuite.de",
+    "version": "1.0.4",
     "license": "GPL-2.0-or-later",
     "authors": [
         {

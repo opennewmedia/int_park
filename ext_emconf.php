@@ -12,7 +12,7 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Interactive Park Planner',
-    'description' => 'Interactive Park Planner is a TYPO3 extension which is using leaflet library to place and show markers with its description on an image.',
+    'description' => 'Interactive Park Planner is a TYPO3 extension which is using leaflet library to place and show markers with its description on an image. You can create as many "plans/images" as you want. Markers with custom icons can also be used. Also, per marker, you can define individual titles and links to subpages.  - Get in touch with us: Open New Media GmbH | Digital communication agency | Tel .: +49 261 30380-80 | E-Mail: info@onm.de | Web: https://www.onm.de | Hotel solutions: https://www.hotelsuite.de',
     'category' => 'plugin',
     'author' => 'Usman Ahmad, Tobias Gräber',
     'author_email' => 'ua@onm.de, tg@onm.de',
@@ -20,7 +20,7 @@ $EM_CONF[$_EXTKEY] = [
     'uploadfolder' => 1,
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
-    'version' => '1.0.3',
+    'version' => '1.0.4',
     'constraints' => [
         'depends' => [
             'typo3' => '8.7.0-10.99.99',
