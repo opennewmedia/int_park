@@ -26,16 +26,18 @@ namespace ONM\IntPark\Controller;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use ONM\IntPark\Domain\Model\Marker;
+use ONM\IntPark\Domain\Repository\MarkerRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\VersionNumberUtility;
-use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Http\JsonResponse;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Extbase\Annotation\Inject as inject;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class PlannerController extends ActionController
 {
@@ -112,19 +114,18 @@ class PlannerController extends ActionController
         $data = json_decode(file_get_contents('php://input'), true);
         $parkId = $data['settings']['park'];
         $pid = $data['settings']['pid'];
-        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_intpark_domain_model_marker');
-        $affectedRows = $queryBuilder
-        ->delete('tx_intpark_domain_model_marker')
-        ->where(
-            $queryBuilder->expr()->eq('park', $queryBuilder->createNamedParameter($parkId))
-        )
-        ->execute();
+
         $this->objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');
         $parkRepository = $this->objectManager->get('ONM\IntPark\Domain\Repository\ParkRepository');
         $park = $parkRepository->findByUid($parkId);
+        $park->setMarkers(new ObjectStorage());
         
         foreach($data['notes'] as $marker) {
-            $markerObj = new \ONM\IntPark\Domain\Model\Marker();
+            if (!isset($marker['uid'])) {
+                $markerObj = new Marker();
+            } else {
+                $markerObj = $this->objectManager->get(MarkerRepository::class)->findByUid($marker['uid']);
+            }
             $markerObj->setLat($marker['x']);
             $markerObj->setLon($marker['y']);
             $markerObj->setTitle(($marker['title']) ? $marker['title'] : 'Untitled_'.$park->getTitle());
