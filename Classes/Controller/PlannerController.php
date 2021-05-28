@@ -27,25 +27,15 @@ namespace ONM\IntPark\Controller;
  ***************************************************************/
 
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\VersionNumberUtility;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Http\JsonResponse;
-use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Extbase\Annotation\Inject as inject;
 
 class PlannerController extends ActionController
 {
-    // /**
-    //  * Backend Template Container
-    //  *
-    //  * @var string
-    //  */
-    // protected $defaultViewObjectName = \TYPO3\CMS\Backend\View\BackendTemplateView::class;
-
     /**
 	 * whether or not the applicant has agreed to the privacy agreement
 	 *
@@ -58,12 +48,6 @@ class PlannerController extends ActionController
      * @inject
 	 */
     private $parkRepository = NULL;
-
-    /**
-	 * @var \ONM\IntPark\Domain\Repository\MarkerRepository
-     * @inject
-	 */
-    private $markerRepository = NULL;
 
     /**
      * initializeAction
@@ -85,7 +69,6 @@ class PlannerController extends ActionController
     {
         $parkId = (int)GeneralUtility::_GP('parkId');
         $pid = (int)GeneralUtility::_GP('id');
-        $iconFontFile = "";
         $this->view->assign('pid', $pid);
         $park = $this->parkRepository->findByUid($parkId);
         if($park) {
@@ -113,12 +96,12 @@ class PlannerController extends ActionController
         $parkId = $data['settings']['park'];
         $pid = $data['settings']['pid'];
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_intpark_domain_model_marker');
-        $affectedRows = $queryBuilder
-        ->delete('tx_intpark_domain_model_marker')
-        ->where(
-            $queryBuilder->expr()->eq('park', $queryBuilder->createNamedParameter($parkId))
-        )
-        ->execute();
+        $queryBuilder
+            ->delete('tx_intpark_domain_model_marker')
+            ->where(
+                $queryBuilder->expr()->eq('park', $queryBuilder->createNamedParameter($parkId))
+            )
+            ->execute();
         $this->objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');
         $parkRepository = $this->objectManager->get('ONM\IntPark\Domain\Repository\ParkRepository');
         $park = $parkRepository->findByUid($parkId);
