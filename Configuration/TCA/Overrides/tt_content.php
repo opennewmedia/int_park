@@ -7,7 +7,8 @@ $cols = [
             'type' => 'select',
             'renderType' => 'selectSingle',
             'foreign_table' => 'tx_intpark_domain_model_park',
-            'foreign_table_where' => 'AND {#tx_intpark_domain_model_park}.{#deleted} = 0 AND {#tx_intpark_domain_model_park}.{#hidden} = 0'
+            'foreign_table_where' => 'AND {#tx_intpark_domain_model_park}.{#deleted} = 0 AND {#tx_intpark_domain_model_park}.{#hidden} = 0',
+            'default' => 0
         ],
     ],
     'tx_intpark_zoom'=> [
